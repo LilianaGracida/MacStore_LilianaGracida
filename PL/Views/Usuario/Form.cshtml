@@ -1,0 +1,51 @@
+﻿@model BL.Usuario
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="/css/Login.css">
+</head>
+<body>
+    <center>
+
+        <div class="row">
+            <div class="col-md-6 mx-auto p-0">
+                <div class="card">
+                    <div class="login-box">
+<h2>Formulario Usuario</h2>
+<div class="container-fluid">
+    <div class="col-md-12">
+@using (Html.BeginForm("Form", "Usuario", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="group">
+        <input id="Nombre" type="text" class="input" placeholder="Nombre" name="Nombre" value="@Model.Nombre">
+    </div>
+    <div class="group">
+        <input id="AP" type="text" class="input" placeholder="Apellido Paterno" name="ApellidoPaterno" value="@Model.ApellidoPaterno">
+    </div>
+    <div class="group">
+                <input id="AM" type="text" class="input" placeholder="Apellido Materno" name="ApellidoMaterno" value="@Model.ApellidoMaterno">
+    </div>
+    <div class="group">
+        Fecha Nacimiento :
+                <input type="date" class="input" name="FechaNacimiento" value="@Model.FechaNacimiento">
+    </div>
+    <div class="group">
+                <input id="user" type="text" class="input" placeholder="Email" name="Email" value="@Model.Email">
+    </div>
+
+    <div class="group">
+                <input id="pass" type="password" class="input" data-type="password" placeholder="Contraseña" name="Contraseña" value="@Model.Contraseña">
+    </div>
+    <div class="group">
+        <button type="submit" class="button" id="btnRegistrar">Guardar</button>
+         @Html.ActionLink("Regresar", "GetAll", "Usuario", htmlAttributes: new { @class = "btn btn-danger" })
+    </div>
+}
+    </div>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </center>

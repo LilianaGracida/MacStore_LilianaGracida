@@ -1,0 +1,95 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="/css/Login.css">
+</head>
+<body>
+    <center>
+
+        <div class="row">
+            <div class="col-md-6 mx-auto p-0">
+                <div class="card">
+                    <div class="login-box">
+                        <div class="login-snip">
+                            <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Login</label>
+                            <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+
+                            <div class="login-space">
+
+                                @using (Html.BeginForm("ValidarCuenta", "Usuario", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    <div class="login">
+
+                                        <div class="group">
+                                            <label for="user" class="label">Email</label>
+                                            <input id="user" type="text" class="input" name="email">
+                                        </div>
+                                        <div class="group">
+                                            <label for="pass" class="label">Contraseña</label>
+                                            <input id="pass" type="password" class="input" data-type="password" name="contraseña">
+                                        </div>
+                                        <div class="group">
+                                            <input type="submit" class="button" value="Sign In">
+                                        </div>
+                                        <div class="hr"></div>
+                                    </div>
+                                }
+
+                                <div class="sign-up-form">
+                                    @using (Html.BeginForm("Form", "Usuario", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                    {
+                                        <div class="group">
+                                            <input id="Nombre" type="text" class="input" placeholder="Nombre" name="Nombre">
+                                        </div>
+                                        <div class="group">
+                                            <input id="AP" type="text" class="input" placeholder="Apellido Paterno" name="ApellidoPaterno">
+                                        </div>
+                                        <div class="group">
+                                            <input id="AM" type="text" class="input" placeholder="Apellido Materno" name="ApellidoMaterno">
+                                        </div>
+                                        <div class="group">
+                                            <input type="date" class="input" name="FechaNacimiento">
+                                        </div>
+                                        <div class="group">
+                                            <input id="user" type="text" class="input" placeholder="Email" name="Email">
+                                        </div>
+
+                                        <div class="group">
+                                            <input id="pass" type="password" class="input" data-type="password" placeholder="Contraseña" name="Contraseña">
+                                        </div>
+                                        <div class="group">
+                                            <button type="submit" class="button" id="btnRegistrar">Registrar</button>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </center>
+</body>
+</html>
+@section Scripts
+{
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+    $(document).ready(function () {
+       $("#datepicker").datepicker({
+          dateFormat: "dd-mm-yy",
+          changemonth: true,
+          changeyear: true
+          });
+       });
+    </script>
+
+}
